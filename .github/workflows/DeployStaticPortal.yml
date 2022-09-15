@@ -17,7 +17,7 @@ jobs:
       id: checkout-repo  
       
     - name: Zip files
-      run: zip -qq -r portal-input.zip -x "/user-APIMATIC-BUILD.json"
+      run: zip -qq -r portal-input.zip 
       
     - name: Call build endpoint
       run: curl -X POST --url 'https://www.apimatic.io/api/portal' -H 'Authorization:X-Auth-Key ${{ secrets.API_KEY }}' -F 'file=@portal-input.zip' -o portal-output.zip
