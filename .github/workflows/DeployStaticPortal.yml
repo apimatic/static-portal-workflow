@@ -21,12 +21,12 @@ jobs:
     - name: Extract generated Portal
       run: unzip -qq portal-input.zip -d static-portal
       
-    - name: list 
-      run: ls
-      
     - uses: actions/checkout@v2
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
        
     
+    - name: list 
+      run: ls
+      
       
