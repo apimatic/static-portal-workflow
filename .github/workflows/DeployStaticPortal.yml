@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-       
     - uses: actions/checkout@v1
       name : checkout-repo
       id: checkout-repo  
@@ -27,5 +23,10 @@ jobs:
       
     - name: list 
       run: ls
+      
+    - uses: actions/checkout@v2
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+       
     
       
