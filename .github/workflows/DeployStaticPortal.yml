@@ -22,5 +22,11 @@ jobs:
       run: unzip -qq portal-input.zip -d static-portal
       
     - name: list 
-      run: cd static-portal ls 
-      
+      run: ls
+    
+    - uses: actions/checkout@v2
+    - name: Run script file
+      run: |
+         chmod +x ./test.sh
+         ./test.sh
+      shell: bash
