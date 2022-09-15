@@ -22,7 +22,5 @@ jobs:
       run: unzip -qq portal-input.zip -d static-portal
       
     - name: list 
-      run: 
-            cd static-portal
-            ls
+      run: cd static-portal ls 
       
