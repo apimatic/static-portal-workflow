@@ -20,7 +20,7 @@ jobs:
       run: zip -qq -r portal-input.zip . -x admin-APIMATIC-BUILD.json
       
     - name: Extract generated Portal
-      run: unzip -qq portal-output.zip -d static-portal
+      run: unzip -qq portal-input.zip -d static-portal
       
     - name: list 
       run: ls
