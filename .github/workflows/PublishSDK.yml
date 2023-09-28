@@ -28,7 +28,7 @@ jobs:
 #      Call APIMatic API to generate SDK
      - name: Generate SDK
        working-directory: 'spec'
-       run: curl -v -X POST --url "https://www.apimatic.io/api/code-generations/generate-via-file" --header  "Authorization:X-Auth-Key ${{ secrets.API_KEY }}" --header "Accept:application/json" --header "content-type:multipart/form-data"  --form "file=@api-spec.zip"  --form "template=JAVA_ECLIPSE_JRE_LIB" -o output.json
+       run: curl -v -X POST --url "https://api.apimatic.io/code-generations/generate-via-file" --header  "Authorization:X-Auth-Key ${{ secrets.API_KEY }}" --header "Accept:application/json" --header "content-type:multipart/form-data"  --form "file=@api-spec.zip"  --form "template=JAVA_ECLIPSE_JRE_LIB" -o output.json
       
 #      Extract 'CodegenId' from API response
      - name: Parse output
@@ -39,7 +39,7 @@ jobs:
 #      Retrieve SDK from APIMatic
      - name: Download SDK
        working-directory: 'spec'
-       run: curl -X GET --url "https://www.apimatic.io/api/code-generations/${{ steps.parse_output.outputs.codegenId }}/generated-sdk" --header "Authorization:X-Auth-Key ${{ secrets.API_KEY }}" -o java-sdk.zip
+       run: curl -X GET --url "https://api.apimatic.io/code-generations/${{ steps.parse_output.outputs.codegenId }}/generated-sdk" --header "Authorization:X-Auth-Key ${{ secrets.API_KEY }}" -o java-sdk.zip
       
 #       unzip SDK retrieved from APIMatic
      - name: Extract generated SDK
