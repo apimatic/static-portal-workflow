@@ -55,7 +55,7 @@ If you just want to quickly test out the API, zip the contents of this repositor
 
 ```
 curl -X POST \
-  --url 'https://www.apimatic.io/api/portal' \
+  --url 'https://api.apimatic.io/portal' \
   -H 'Authorization: X-Auth-Key {x-auth-key}'\
   -F 'file=@your_zip_file.zip'
 ```
