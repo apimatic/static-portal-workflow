@@ -27,10 +27,21 @@
         },
         "headIncludes": "  <link href=\"https:\\/\\/fonts.googleapis.com\\/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap\" rel=\"stylesheet\">",
         "portalSettings": {
-            "themeOverrides": {
-                "themeType": "cool",
-                "palette": {
-                    "primaryColor": "#94C13D"
+            "theme": {
+                "baseTheme": "standard",
+                "colors": {
+                    "primaryColor": {
+                        "light": "#0C7FF2",
+                        "dark": "#7CBAF8"
+                    },
+                    "linkColor": {
+                        "light": "#004AD7",
+                        "dark": "#A3D1FF"
+                    }
+                },
+                "colorMode": {
+                    "defaultMode": "system",
+                    "disableSwitch": false
                 }
             },
             "enableExport": true,
