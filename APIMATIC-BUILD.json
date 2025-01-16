@@ -46,6 +46,7 @@
             },
             "enableExport": true,
             "enableConsoleCalls": true
-        }
+        },
+        "tailIncludes": "<script defer src='./static/scripts/guided-walkthroughs/walkthrough-1.js'></script><script>document.addEventListener('DOMContentLoaded', (event) => {APIMaticDevPortal.ready(({ registerWorkflow }) => {registerWorkflow('page:calculate-api/guided-walkthroughs/walkthrough-1', 'Sample Workflow', SampleWorkflow);});});</script>"
     }
 }
