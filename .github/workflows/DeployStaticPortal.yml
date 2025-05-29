@@ -4,7 +4,7 @@ on:
   workflow_dispatch:  
   push:
     branches: 
-      - master 
+      - master
       
 jobs:
   generate-portal:
@@ -12,7 +12,7 @@ jobs:
 
     steps:
        
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
       name : checkout-repo
       id: checkout-repo  
       
@@ -43,7 +43,7 @@ jobs:
       
     - name: Deploy to Netlify
       if: ${{steps.generate-portal.outputs.HTTP_CODE == '200'}}
-      uses: nwtgck/actions-netlify@v2.0
+      uses: nwtgck/actions-netlify@v3.0
       with:
         publish-dir: './static-portal'
         production-branch: master
@@ -60,7 +60,7 @@ jobs:
       # Upload Portal Artifact
     - name: Upload Artifact
       if: ${{steps.generate-portal.outputs.HTTP_CODE == '200' }}
-      uses: actions/upload-artifact@v3.1.1
+      uses: actions/upload-artifact@v4
       with:
         name: static-portal
         path: static-portal
@@ -73,7 +73,7 @@ jobs:
     # Upload error.zip if error code is 422 with a zip file
     - name: Upload error.zip
       if: ${{steps.generate-portal.outputs.HTTP_CODE == '422' && steps.generate-portal.outputs.CONTENT_TYPE == 'application/zip'}}
-      uses: actions/upload-artifact@v3.1.1
+      uses: actions/upload-artifact@v4
       with:
         name: error
         path: error
