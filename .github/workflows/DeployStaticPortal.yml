@@ -1,11 +1,11 @@
 name: Deploy Static Portal
 
 on:
-  workflow_dispatch:  
+  workflow_dispatch:
   push:
-    branches: 
+    branches:
       - master
-      
+
 jobs:
   generate-portal:
     runs-on: ubuntu-latest
@@ -13,12 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: Checkout repo
-        id: checkout-repo  
+        id: checkout-repo
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install APImatic CLI
         run: npm install -g @apimatic/cli@1.1.0-alpha.22
@@ -35,11 +35,18 @@ jobs:
 
       - name: List after move
         run: ls
-      
+
+      # Upload Portal Artifact
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-portal
+          path: static-portal
+
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
-          publish-dir: './static-portal'
+          publish-dir: "./static-portal"
           production-branch: master
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
@@ -50,10 +57,3 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 2
-
-      # Upload Portal Artifact
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: static-portal
-          path: static-portal
