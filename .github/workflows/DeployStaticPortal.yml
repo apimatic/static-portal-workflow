@@ -30,12 +30,6 @@ jobs:
       - name: Generate Portal
         run: apimatic portal:generate --auth-key=${{ secrets.API_KEY }} --destination=./${{ env.PORTAL_DIR }}
 
-      - name: List
-        run: ls
-
-      - name: List generated portal
-        run: ls ${{ env.PORTAL_DIR }}
-
       # Upload Portal Artifact
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
